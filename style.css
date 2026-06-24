@@ -702,22 +702,76 @@ footer small {
   letter-spacing: .06em;
 }
 
-/* ─── RESPONSIVO ─────────────────────────────── */
-@media (max-width: 760px) {
-  .stats-grid { grid-template-columns: 1fr 1fr; }
+/* ════════════════════════════════════════════════
+   RESPONSIVO
+   Breakpoints:
+     - 1024px → tablet paisagem
+     -  760px → tablet retrato / mobile grande
+     -  480px → mobile médio
+     -  360px → mobile pequeno
+   ════════════════════════════════════════════════ */
 
-  .religioes-tabs { grid-template-columns: 1fr; }
+/* ── 1024px: tablet paisagem ─────────────────── */
+@media (max-width: 1024px) {
+
+  /* Nav */
+  .nav-links { gap: 1.2rem; }
+
+  /* Stats: 3 colunas */
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* Mitos: 2 colunas */
+  .mitos-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Religiões: coluna lateral menor */
+  .religioes-tabs { grid-template-columns: 180px 1fr; gap: 1.8rem; }
+
+  /* Orixás: 2 colunas */
+  .orixas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── 760px: tablet retrato / mobile grande ───── */
+@media (max-width: 760px) {
+
+  /* ── Nav ── */
+  .nav-links { display: none; }        /* esconde links, mantém logo */
+
+  .nav-inner { height: 56px; }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 3rem var(--gap) 4rem;
+    text-align: left;
+  }
+
+  /* Desativa círculos decorativos (ficam grandes demais) */
+  .hero::before, .hero::after { display: none; }
+
+  /* ── Stats ── */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+  .stat-box { padding: 1.2rem 1.4rem; }
+
+  /* ── Mitos ── */
+  .mitos-grid { grid-template-columns: 1fr; }
+
+  /* ── Religiões: abas viram menu horizontal ── */
+  .religioes-tabs {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 
   .tab-list {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: .3rem;
   }
 
   .tab-item {
     border-left: none;
     border-bottom: 3px solid rgba(255,255,255,.15);
-    padding: .6rem .9rem;
-    font-size: .95rem;
+    padding: .55rem .85rem;
+    font-size: .9rem;
   }
 
   .tab-item.active,
@@ -725,9 +779,90 @@ footer small {
     border-bottom-color: var(--ouro);
   }
 
-  .nav-links { display: none; }
+  .tab-content { padding: 1.6rem 1.4rem; }
+
+  /* ── Orixás: 1 coluna ── */
+  .orixas-grid { grid-template-columns: 1fr; }
+
+  /* ── Footer ── */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6rem;
+  }
 }
 
+/* ── 480px: mobile médio ──────────────────────── */
 @media (max-width: 480px) {
+
+  /* ── Stats: 1 coluna ── */
   .stats-grid { grid-template-columns: 1fr; }
+
+  /* ── Hero: título menor ── */
+  .hero-title { font-size: 2.2rem; }
+
+  .hero-sub { font-size: 1rem; }
+
+  /* ── Section headers ── */
+  .section-title { font-size: 1.6rem; }
+
+  /* ── Abas de religiões: fonte menor ── */
+  .tab-item { font-size: .82rem; padding: .45rem .7rem; }
+
+  .tab-pane h3  { font-size: 1.4rem; }
+  .tab-pane h4  { font-size: .97rem; }
+  .tab-pane p   { font-size: .93rem; }
+
+  /* ── Tab content: menos padding ── */
+  .tab-content { padding: 1.2rem 1rem; }
+
+  /* ── Cards de mito ── */
+  .card-mito { font-size: 1.05rem; }
+
+  /* ── Orixás ── */
+  .orixa-name    { font-size: 1.3rem; }
+  .orixa-body p  { font-size: .88rem; }
+
+  /* ── Citação ── */
+  .citacao blockquote p { font-size: 1.15rem; }
+
+  /* ── Footer ── */
+  footer small { font-size: .65rem; }
+}
+
+/* ── 360px: mobile pequeno ───────────────────── */
+@media (max-width: 360px) {
+
+  :root { --gap: 1rem; }
+
+  /* Nav logo menor */
+  .nav-logo { font-size: 1rem; }
+
+  /* Hero compacto */
+  .hero-title    { font-size: 1.85rem; }
+  .hero-cta      { font-size: .72rem; padding: .7rem 1.4rem; }
+
+  /* Seções compactas */
+  .section-header { padding: 2rem var(--gap) 1.2rem; }
+
+  /* Stats */
+  .stat-box .num { font-size: 2rem; }
+
+  /* Abas em coluna */
+  .tab-list { flex-direction: column; }
+
+  .tab-item {
+    border-bottom: none;
+    border-left: 3px solid rgba(255,255,255,.15);
+    font-size: .85rem;
+  }
+
+  .tab-item.active,
+  .tab-item:hover {
+    border-left-color: var(--ouro);
+    border-bottom-color: transparent;
+  }
+
+  /* Pills menores */
+  .pill { font-size: .65rem; padding: .25rem .6rem; }
 }
