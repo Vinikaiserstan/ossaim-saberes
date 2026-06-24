@@ -1,0 +1,733 @@
+/* ════════════════════════════════════════════════
+   OSSAIM SABERES — style.css
+   Religiões de Matriz Africana no Brasil
+   Projeto Ética Racial · 2025
+   ════════════════════════════════════════════════ */
+
+/* ─── TOKENS ─────────────────────────────────── */
+:root {
+  --verde:     #1A3A2A;
+  --verde-m:   #2C5940;
+  --ouro:      #C8922A;
+  --ouro-l:    #E8B84B;
+  --areia:     #F2E8D5;
+  --giz:       #FAF7F2;
+  --terracota: #8B3A2F;
+  --texto:     #1C1C1A;
+  --cinza:     #6B6B65;
+
+  --display: 'Playfair Display', Georgia, serif;
+  --body:    'Source Serif 4', Georgia, serif;
+  --mono:    'DM Mono', monospace;
+
+  --max: 1140px;
+  --gap: clamp(1.5rem, 5vw, 3rem);
+}
+
+/* ─── RESET ──────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  background: var(--giz);
+  color: var(--texto);
+  font-size: clamp(1rem, 1.1vw, 1.125rem);
+  line-height: 1.72;
+}
+
+img { display: block; max-width: 100%; }
+a   { color: inherit; }
+
+/* ─── PADRÃO KENTE ───────────────────────────── */
+/* Faixa decorativa inspirada no tecido africano kente */
+.kente {
+  height: 18px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ouro)      0px,  var(--ouro)      18px,
+    var(--verde)     18px, var(--verde)      36px,
+    var(--terracota) 36px, var(--terracota)  54px,
+    var(--verde)     54px, var(--verde)      72px
+  );
+  position: relative;
+}
+
+.kente::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0,    transparent 6px,
+    rgba(0,0,0,.18) 6px, rgba(0,0,0,.18) 9px,
+    transparent 9px,  transparent 18px
+  );
+}
+
+/* ─── NAV ────────────────────────────────────── */
+nav {
+  background: var(--verde);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-inner {
+  max-width: var(--max);
+  margin: auto;
+  padding: 0 var(--gap);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ouro);
+  text-decoration: none;
+}
+
+.nav-logo span { color: #fff; }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.nav-links a:hover { color: var(--ouro-l); }
+
+/* ─── HERO ───────────────────────────────────── */
+.hero {
+  background: var(--verde);
+  color: #fff;
+  padding: clamp(4rem, 10vw, 8rem) var(--gap) clamp(5rem, 12vw, 10rem);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Círculos decorativos de fundo */
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -120px; top: -80px;
+  width: 520px; height: 520px;
+  border-radius: 50%;
+  border: 80px solid rgba(200,146,42,.12);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  right: 60px; top: 40px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  border: 40px solid rgba(200,146,42,.08);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: var(--max);
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  max-width: 780px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--ouro);
+}
+
+.hero-sub {
+  margin-top: 2rem;
+  max-width: 560px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.82);
+  line-height: 1.8;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: .85rem 2.2rem;
+  background: var(--ouro);
+  color: var(--verde);
+  font-family: var(--mono);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background .2s, transform .15s;
+}
+
+.hero-cta:hover {
+  background: var(--ouro-l);
+  transform: translateY(-2px);
+}
+
+/* ─── DADOS / STATS ──────────────────────────── */
+.stats {
+  background: var(--areia);
+  padding: clamp(3.5rem, 8vw, 6rem) var(--gap);
+}
+
+.stats-inner {
+  max-width: var(--max);
+  margin: auto;
+}
+
+.stats-title {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--verde);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  line-height: 1.25;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-box {
+  background: #fff;
+  border-radius: 4px;
+  padding: 1.6rem 1.8rem;
+  border-top: 4px solid var(--ouro);
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+.stat-box .num {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--verde);
+  line-height: 1;
+}
+
+.stat-box .desc {
+  margin-top: .5rem;
+  font-size: .9rem;
+  color: var(--cinza);
+  line-height: 1.55;
+}
+
+.stat-box .fonte {
+  margin-top: .8rem;
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+
+.stats-alert {
+  margin-top: 2rem;
+  background: rgba(139,58,47,.08);
+  border-left: 4px solid var(--terracota);
+  padding: 1.2rem 1.6rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.stats-alert p {
+  font-size: .95rem;
+  color: #3a1a15;
+  line-height: 1.7;
+}
+
+.stats-alert strong { color: var(--terracota); }
+
+/* ─── CABEÇALHO DE SEÇÃO ─────────────────────── */
+.section-header {
+  max-width: var(--max);
+  margin: auto;
+  padding: clamp(3rem, 7vw, 5rem) var(--gap) 2rem;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  display: block;
+  margin-bottom: .75rem;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1.15;
+  max-width: 640px;
+}
+
+/* ─── MITOS ──────────────────────────────────── */
+.mitos {
+  padding: 0 var(--gap) clamp(3rem, 7vw, 6rem);
+}
+
+.mitos-grid {
+  max-width: var(--max);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.mito-card {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.mito-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.1);
+}
+
+.card-top {
+  background: var(--verde);
+  padding: 1.4rem 1.6rem 1rem;
+}
+
+.card-tag {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+
+.card-mito {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(255,255,255,.9);
+  margin-top: .5rem;
+  line-height: 1.4;
+}
+
+.card-body {
+  padding: 1.4rem 1.6rem;
+  flex: 1;
+}
+
+.card-realidade-label {
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  margin-bottom: .6rem;
+  display: block;
+}
+
+.card-body p {
+  font-size: .95rem;
+  color: #3a3a35;
+  line-height: 1.7;
+}
+
+/* ─── RELIGIÕES (abas) ───────────────────────── */
+.religioes {
+  background: var(--verde);
+  color: #fff;
+}
+
+.religioes-header {
+  max-width: var(--max);
+  margin: auto;
+  padding: clamp(3rem, 7vw, 5rem) var(--gap) 2.5rem;
+}
+
+.religioes-header .section-label { color: var(--ouro); }
+.religioes-header .section-title { color: #fff; }
+
+.religioes-tabs {
+  max-width: var(--max);
+  margin: auto;
+  padding: 0 var(--gap) clamp(3rem, 7vw, 6rem);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2.5rem;
+}
+
+.tab-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.tab-item {
+  padding: .9rem 1.2rem;
+  border-left: 3px solid rgba(255,255,255,.15);
+  font-family: var(--display);
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  color: rgba(255,255,255,.6);
+}
+
+.tab-item.active,
+.tab-item:hover {
+  border-color: var(--ouro);
+  color: #fff;
+}
+
+.tab-item.active { font-weight: 700; }
+
+.tab-content {
+  background: rgba(255,255,255,.06);
+  border-radius: 4px;
+  padding: 2.4rem 2.6rem;
+}
+
+.tab-pane          { display: none; }
+.tab-pane.active   { display: block; }
+
+.tab-pane h3 {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ouro);
+  margin-bottom: .3rem;
+}
+
+.tab-pane .origem {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.45);
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  display: block;
+}
+
+.tab-pane p {
+  color: rgba(255,255,255,.85);
+  line-height: 1.85;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tab-pane p:last-of-type { margin-bottom: 0; }
+
+.tab-pane h4 {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  color: var(--ouro-l);
+  margin: 1.4rem 0 .5rem;
+}
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.4rem;
+}
+
+.pill {
+  background: rgba(200,146,42,.18);
+  border: 1px solid rgba(200,146,42,.4);
+  color: var(--ouro-l);
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  padding: .3rem .8rem;
+  border-radius: 999px;
+}
+
+.rel-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,.1);
+  margin: 1.2rem 0;
+}
+
+/* ─── ORIXÁS ─────────────────────────────────── */
+.orixas-section {
+  background: var(--giz);
+  padding: 0 0 clamp(3rem, 7vw, 6rem);
+}
+
+.orixas-intro {
+  max-width: var(--max);
+  margin: auto;
+  padding: 0 var(--gap);
+  margin-bottom: 2.5rem;
+}
+
+.orixas-intro p {
+  max-width: 700px;
+  font-size: 1.05rem;
+  color: #3a3a35;
+  line-height: 1.8;
+}
+
+.orixas-grid {
+  max-width: var(--max);
+  margin: auto;
+  padding: 0 var(--gap);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.orixa-card {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,.07);
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.orixa-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(0,0,0,.11);
+}
+
+.orixa-header {
+  padding: 1.4rem 1.6rem 1rem;
+  position: relative;
+}
+
+.orixa-symbol {
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+  font-size: 1.8rem;
+  opacity: .25;
+}
+
+.orixa-name {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.orixa-dominio {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-top: .2rem;
+  opacity: .7;
+}
+
+.orixa-body {
+  padding: 1.2rem 1.6rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+}
+
+.orixa-body p {
+  font-size: .93rem;
+  color: #3a3a35;
+  line-height: 1.7;
+}
+
+.orixa-meta {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.orixa-meta-row {
+  display: flex;
+  gap: .6rem;
+  align-items: baseline;
+  font-size: .82rem;
+}
+
+.orixa-meta-label {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cinza);
+  white-space: nowrap;
+}
+
+.orixa-meta-val { color: var(--texto); }
+
+.orixa-saudacao {
+  margin-top: auto;
+  padding-top: .8rem;
+  border-top: 1px solid #eee;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: .95rem;
+}
+
+/* Cores individuais de cada Orixá */
+.c-exu     .orixa-header { background: #1a1a1a; color: #fff; }
+.c-exu     .orixa-saudacao { color: #1a1a1a; }
+
+.c-ogum    .orixa-header { background: #1a3a6b; color: #fff; }
+.c-ogum    .orixa-saudacao { color: #1a3a6b; }
+
+.c-oxossi  .orixa-header { background: #1A3A2A; color: #fff; }
+.c-oxossi  .orixa-saudacao { color: #1A3A2A; }
+
+.c-xango   .orixa-header { background: #8B1A1A; color: #fff; }
+.c-xango   .orixa-saudacao { color: #8B1A1A; }
+
+.c-iansa   .orixa-header { background: #7B2D8B; color: #fff; }
+.c-iansa   .orixa-saudacao { color: #7B2D8B; }
+
+.c-oxum    .orixa-header { background: #8B6914; color: #fff; }
+.c-oxum    .orixa-saudacao { color: #8B6914; }
+
+.c-iemanja .orixa-header { background: #1a4a7a; color: #fff; }
+.c-iemanja .orixa-saudacao { color: #1a4a7a; }
+
+.c-obaluae .orixa-header { background: #3a3a2a; color: #fff; }
+.c-obaluae .orixa-saudacao { color: #3a3a2a; }
+
+.c-oxala   .orixa-header { background: #5a5a5a; color: #fff; }
+.c-oxala   .orixa-saudacao { color: #5a5a5a; }
+
+.c-nana    .orixa-header { background: #4a1a4a; color: #fff; }
+.c-nana    .orixa-saudacao { color: #4a1a4a; }
+
+/* Cor do subtítulo dentro dos headers coloridos */
+.c-exu .orixa-dominio, .c-ogum .orixa-dominio, .c-oxossi .orixa-dominio,
+.c-xango .orixa-dominio, .c-iansa .orixa-dominio, .c-oxum .orixa-dominio,
+.c-iemanja .orixa-dominio, .c-obaluae .orixa-dominio, .c-oxala .orixa-dominio,
+.c-nana .orixa-dominio {
+  color: rgba(255,255,255,.75);
+  opacity: 1;
+}
+
+/* ─── CITAÇÃO ────────────────────────────────── */
+.citacao {
+  background: var(--areia);
+  padding: clamp(3rem, 7vw, 6rem) var(--gap);
+  text-align: center;
+}
+
+.citacao blockquote { max-width: 760px; margin: auto; }
+
+.citacao blockquote p {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  font-style: italic;
+  color: var(--verde);
+  line-height: 1.45;
+}
+
+.citacao cite {
+  display: block;
+  margin-top: 1.2rem;
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cinza);
+  font-style: normal;
+}
+
+/* ─── FOOTER ─────────────────────────────────── */
+footer {
+  background: var(--texto);
+  color: rgba(255,255,255,.6);
+  padding: 2.5rem var(--gap);
+}
+
+.footer-inner {
+  max-width: var(--max);
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+footer small {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .06em;
+}
+
+/* ─── RESPONSIVO ─────────────────────────────── */
+@media (max-width: 760px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+
+  .religioes-tabs { grid-template-columns: 1fr; }
+
+  .tab-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tab-item {
+    border-left: none;
+    border-bottom: 3px solid rgba(255,255,255,.15);
+    padding: .6rem .9rem;
+    font-size: .95rem;
+  }
+
+  .tab-item.active,
+  .tab-item:hover {
+    border-bottom-color: var(--ouro);
+  }
+
+  .nav-links { display: none; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
