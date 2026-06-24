@@ -1,7 +1,7 @@
 /* ════════════════════════════════════════════════
    OSSAIM SABERES — style.css
    Religiões de Matriz Africana no Brasil
-   Projeto Ética Racial · 2026
+   Projeto Ética Racial · 2025
    ════════════════════════════════════════════════ */
 
 /* ─── TOKENS ─────────────────────────────────── */
@@ -642,11 +642,32 @@ nav {
 .c-nana    .orixa-header { background: #4a1a4a; color: #fff; }
 .c-nana    .orixa-saudacao { color: #4a1a4a; }
 
+/* 6 novos Orixás */
+.c-ossaim  .orixa-header { background: #1f4a1f; color: #fff; }
+.c-ossaim  .orixa-saudacao { color: #1f4a1f; }
+
+.c-oxumare .orixa-header { background: #4a3a00; color: #fff; }
+.c-oxumare .orixa-saudacao { color: #4a3a00; }
+
+.c-logunede .orixa-header { background: #1a3a6b; color: #fff; }
+.c-logunede .orixa-saudacao { color: #1a3a6b; }
+
+.c-oba     .orixa-header { background: #7a1a3a; color: #fff; }
+.c-oba     .orixa-saudacao { color: #7a1a3a; }
+
+.c-ibeji   .orixa-header { background: #1a5a7a; color: #fff; }
+.c-ibeji   .orixa-saudacao { color: #1a5a7a; }
+
+.c-yewa    .orixa-header { background: #6a2a4a; color: #fff; }
+.c-yewa    .orixa-saudacao { color: #6a2a4a; }
+
 /* Cor do subtítulo dentro dos headers coloridos */
 .c-exu .orixa-dominio, .c-ogum .orixa-dominio, .c-oxossi .orixa-dominio,
 .c-xango .orixa-dominio, .c-iansa .orixa-dominio, .c-oxum .orixa-dominio,
 .c-iemanja .orixa-dominio, .c-obaluae .orixa-dominio, .c-oxala .orixa-dominio,
-.c-nana .orixa-dominio {
+.c-nana .orixa-dominio, .c-ossaim .orixa-dominio, .c-oxumare .orixa-dominio,
+.c-logunede .orixa-dominio, .c-oba .orixa-dominio, .c-ibeji .orixa-dominio,
+.c-yewa .orixa-dominio {
   color: rgba(255,255,255,.75);
   opacity: 1;
 }
